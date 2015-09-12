@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="mario.css">
+	<script language="javascript" type="text/javascript">
+    //设计mario
+    function Mario(){
+    	this.x=0;
+    	this.y=0;
+
+    //移动0->上  1->右  2->下   3->左
+        this.move=function(direct){
+            switch(direct){
+            case 0:
+                //这里为了改变img的left和top，需要先获取img元素
+                var mymario=document.getElementById("mymario"); 
+                //去掉px
+                var top=mymario.style.top;
+                top=parseInt(top.substr(0,top.length-2));
+                mymario.style.top=(top-50)+"px";
+                break;
+            case 1:
+                //这里为了改变img的left和top，需要先获取img元素
+                var mymario=document.getElementById("mymario"); 
+                //去掉px
+                var left=mymario.style.left;
+                left=parseInt(left.substr(0,left.length-2));
+                mymario.style.left=(left+50)+"px";
+                break;
+            case 2:
+                //这里为了改变img的left和top，需要先获取img元素
+                var mymario=document.getElementById("mymario"); 
+                //去掉px
+                var top=mymario.style.top;
+                top=parseInt(top.substr(0,top.length-2));
+                mymario.style.top=(top+50)+"px";
+                break;
+            case 3:
+                //这里为了改变img的left和top，需要先获取img元素
+                var mymario=document.getElementById("mymario"); 
+                //去掉px
+                var left=mymario.style.left;
+                left=parseInt(left.substr(0,left.length-2));
+                mymario.style.left=(left-50)+"px";
+                break;                                
+            }
+        }
+
+    }
+
+
+
+    function Mushroom(){
+        this.move=function(){
+            var ran=Math.random()*4;
+            switch(Math.floor(ran)){
+            case 0:
+                //这里为了改变img的left和top，需要先获取img元素
+                var mymushroom=document.getElementById("mymushroom"); 
+                //去掉px
+                var top=mymushroom.style.top;
+                top=parseInt(top.substr(0,top.length-2));
+                mymushroom.style.top=(top-10)+"px";
+                break;
+            case 1:
+                //这里为了改变img的left和top，需要先获取img元素
+                var mymushroom=document.getElementById("mymushroom"); 
+                //去掉px
+                var left=mymushroom.style.left;
+                left=parseInt(left.substr(0,left.length-2));
+                mymushroom.style.left=(left+10)+"px";
+                break;
+            case 2:
+                //这里为了改变img的left和top，需要先获取img元素
+                var mymushroom=document.getElementById("mymushroom"); 
+                //去掉px
+                var top=mymushroom.style.top;
+                top=parseInt(top.substr(0,top.length-2));
+                mymushroom.style.top=(top+10)+"px";
+                break;
+            case 3:
+                //这里为了改变img的left和top，需要先获取img元素
+                var mymushroom=document.getElementById("mymushroom"); 
+                //去掉px
+                var left=mymushroom.style.left;
+                left=parseInt(left.substr(0,left.length-2));
+                mymushroom.style.left=(left-10)+"px";
+                break;       
+            }
+        }
+    }
+
+
+    //创建mario和mushroom对象
+    var mario=new Mario();
+    var mushroom=new Mushroom();
+
+
+    //全局函数
+    function marioMove(direct){
+  	    mario.move(direct);
+         mushroom.move();
+    }
+
+
+	</script>
+</head>
+<body>
+
+    <div class="gamediv">
+     	<img id="mymario" src="mario.jpg" alt="马里奥" style="width:40px;height:40px;position:absolute;left:30px;top:50px;">
+        <img id="mymushroom" src="mushroom.jpg" alt="蘑菇酱" style="width:20px;height:20px;position:absolute;left:330px;top:150px;">
+    </div>
+	<table class="controlcenter">
+	    <tr><td colspan="3">游戏键盘</td></tr>
+        <tr><td>**</td><td><input type="button" value="↑↑" onclick="marioMove(0)"></td><td>**</td></tr>
+	    <tr><td><input type="button" value="←←"  onclick="marioMove(3)"></td><td>**</td><td><input type="button" value="→→"  onclick="marioMove(1)"></td></tr>
+	    <tr><td>**</td><td><input type="button" value="↓↓"  onclick="marioMove(2)"></td><td>**</td></tr>	
+	 </table>
+</body>
+</html>
