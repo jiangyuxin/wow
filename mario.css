@@ -1,11 +1,15 @@
 .gamediv{
 	width:500px;
 	height:400px;
-	background-color: pink; 
-	positon:absolute;
+	background-color: grey; 
+	positon:relative;
+	margin:0 auto;
 }
+
 .controlcenter{
     width:200px;
     height:100px;
     border: 1px solid blue;
-}
+    margin:0 auto;         //将整个表格居中
+    text-align: center;    //将表格中的内容居中
+} 
